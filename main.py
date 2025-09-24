@@ -1,6 +1,8 @@
-import sys
 import pygame
+import controls
 from gun import Gun
+
+
 def start():
     pygame.init()
     gamewindow = pygame.display.set_mode((700, 800))
@@ -9,11 +11,13 @@ def start():
     BLACK = (0,0,0)
     gun = Gun(gamewindow)
     while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
+        # Записуаем функцию обработки событий
+        controls.events(gun)
+        # Закрашиваем область
         gamewindow.fill(BLACK)
+        # Выводим пушку
         gun.output()
+        # Отображаем
         pygame.display.flip()
 if __name__ =='__main__':
     start()
