@@ -10,8 +10,15 @@ def events(gun):
             if event.key == pygame.K_d:
                 # moving on the right
                 gun.mright = True
+            elif event.key == pygame.K_a:
+                # moving on the left
+                gun.mleft = True
+
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_d:
-                # moving on the right
+                # moving on the right (stop)
                 gun.mright = False
+            elif event.key == pygame.K_a:
+                # moving on the left (stop)
+                gun.mleft = False
 
