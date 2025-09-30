@@ -1,7 +1,8 @@
 import pygame
 import sys
+from bullet import Bullet
 
-def events(gun):
+def events(screen,gun,bullets):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
@@ -14,6 +15,10 @@ def events(gun):
                 # moving on the left
                 gun.mleft = True
 
+            elif event.key == pygame.K_SPACE:
+                new_bulluet = Bullet(screen, gun)
+                bullets.add(new_bulluet)
+
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_d:
                 # moving on the right (stop)
@@ -22,10 +27,18 @@ def events(gun):
                 # moving on the left (stop)
                 gun.mleft = False
 
-def update(bg_color,screen,gun):
+def update(bg_color,screen,gun,bullets):
     # Закрашиваем область
     screen.fill(bg_color)
+    for bullet in bullets.sprites():
+        bullet.draw_bullet()
     # Выводим пушку
     gun.output()
     # Отображаем
     pygame.display.flip()
+
+def update_bullets(bullets):
+    bullets.update()
+    for bullet in bullets.copy():
+        if bullet.rect.bottom <= 0:
+            bullets.remove(bullet)
