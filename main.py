@@ -5,16 +5,15 @@ from gun import Gun
 
 def start():
     pygame.init()
-    gamewindow = pygame.display.set_mode((700, 800))
+    screen = pygame.display.set_mode((700, 800))
     pygame.display.set_caption("Игра")
-    WHITE = (255, 255, 255)
     BLACK = (0,0,0)
-    gun = Gun(gamewindow)
+    gun = Gun(screen)
     while True:
         # Записуаем функцию обработки событий
         controls.events(gun)
         # Закрашиваем область
-        gamewindow.fill(BLACK)
+        screen.fill(BLACK)
         # Выводим пушку
         gun.output()
         # Отображаем

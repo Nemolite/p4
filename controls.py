@@ -8,4 +8,4 @@ def events(gun):
 
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_d:
-                gun.rect.centrex +=1
+                gun.rect.centerx +=1
