@@ -12,5 +12,12 @@ class Gun():
         self.rect.centerx  = self.screen_rect.centerx
         print(self.rect.centerx)
         self.rect.bottom = self.screen_rect.bottom
+        # Переменная для сдвига пушки в динамике
+        self.mright = False
     def output(self):
         self.screen.blit(self.image,self.rect)
+
+    def update_gun(self):
+        """ update position gun"""
+        if self.mright==True:
+            self.rect.centerx+=1

@@ -12,6 +12,8 @@ def start():
     while True:
         # Записуаем функцию обработки событий
         controls.events(gun)
+        # update position a gun
+        gun.update_gun()
         # Закрашиваем область
         screen.fill(BLACK)
         # Выводим пушку
