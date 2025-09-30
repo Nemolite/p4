@@ -22,3 +22,10 @@ def events(gun):
                 # moving on the left (stop)
                 gun.mleft = False
 
+def update(bg_color,screen,gun):
+    # Закрашиваем область
+    screen.fill(bg_color)
+    # Выводим пушку
+    gun.output()
+    # Отображаем
+    pygame.display.flip()

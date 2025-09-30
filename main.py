@@ -14,11 +14,7 @@ def start():
         controls.events(gun)
         # update position a gun
         gun.update_gun()
-        # Закрашиваем область
-        screen.fill(BLACK)
-        # Выводим пушку
-        gun.output()
-        # Отображаем
-        pygame.display.flip()
+        controls.update(BLACK, screen, gun)
+
 if __name__ =='__main__':
     start()
